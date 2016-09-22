@@ -1,0 +1,35 @@
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class ReadExcelFile {
+    public static void main(String[] args) throws IOException {
+
+	ArrayList<String> list = new ArrayList<>();
+
+	// New BufferedReader.
+	BufferedReader reader = new BufferedReader(new FileReader(
+		"C:\\Users\\551469\\Desktop\\Read Excel File In java 1.txt"));
+
+	// Add all lines from file to ArrayList.
+	while (true) {
+	    String line = reader.readLine();
+	    if (line == null) {
+		break;
+	    }
+	    list.add(line);
+	} 
+// Close it.
+	reader.close();
+
+	// Print size of ArrayList.
+	System.out.println("Lines: " + list.size());
+
+	// Print each line.
+	for (String line : list) {
+	    System.out.println(line);
+	}
+    }
+} 
