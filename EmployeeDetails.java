@@ -1,0 +1,61 @@
+import java.util.Scanner; 
+
+
+public class EmployeeDetails { 
+
+/** 
+* @param args 
+*/ 
+public static void main(String[] args) { 
+
+Scanner sc=new Scanner(System.in); 
+System.out.println("Enter the user name"); 
+String usserName=sc.nextLine(); 
+System.out.println("Enter the password"); 
+String passWord=sc.nextLine(); 
+System.out.println("Enter the first name"); 
+String firstName=sc.nextLine(); 
+System.out.println("Enter the last name"); 
+String lastName=sc.nextLine(); 
+System.out.println("The username "+usserName+userValid(usserName)); 
+System.out.println("The password "+usserName+passValid(usserName,passWord)); 
+System.out.println("The first name "+firstName+namesValid(firstName)); 
+System.out.println("The last name "+lastName+namesValid(lastName)); 
+
+} 
+
+private static String namesValid(String firstName) { 
+if(firstName.matches("[a-zA-Z]+")){ 
+return " is valid"; 
+} 
+return " is invalid"; 
+} 
+
+private static String passValid(String usserName, String passWord) { 
+if(usserName==passWord){ 
+return " is invalid as user name and password is same"; 
+}else if(passWord.length()<8 ||passWord.length()>15){ 
+return " is invalid as password should not be less that 15 and more thsn 8 in length"; 
+}else if(!passWord.matches("(.*[A-Z].*)")){ 
+return " is invalid as password should contain atleast one upper case letter"; 
+}else if(!passWord.matches("(.*[a-z].*)")){ 
+return " is invalid as password should contain atleast one lower case letter"; 
+}else if(!passWord.matches("(.*[0-9].*)")){ 
+return " is invalid as password should contain atleast one number"; 
+}else if(!passWord.matches("(.*[~,!,@,#,$,%,^,&,*,(,),_,_,+,[,],{,},|,;,:,<,>,/,?].*$)")){ 
+return " is invalid as password should contain atleast one special character"; 
+} 
+return " is valid"; 
+} 
+
+
+
+static String userValid(String usserName) { 
+if(usserName.matches("[a-zA-Z0-9]+")){ 
+return "is valid"; 
+} 
+
+return "is not valid"; 
+} 
+
+} 
